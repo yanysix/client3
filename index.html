@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Яночкина доска задач</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+<div id="app">
+    <h1>Яночкина доска задач</h1>
+    <!-- Форма создания карточки -->
+    <div class="card-form-wrapper">
+        <card-form @create-card="createCard"></card-form>
+    </div>
+    <!-- Столбцы -->
+    <div class="container">
+        <card-column
+                v-for="(column, index) in columns"
+                :key="column.id"
+                :cards="column.cards"
+                :column-index="index"
+                :column-title="column.title"
+                @move-card="moveCard"
+                @delete-card="deleteCard"
+                @edit-card="editCard">
+        </card-column>
+    </div>
+</div>
 
+<!-- Подключение Vue.js -->
+<script src="https://unpkg.com/vue@2"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

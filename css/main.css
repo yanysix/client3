@@ -1,0 +1,120 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffafd1;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    width: 300px;
+    min-height: 400px;
+}
+
+.card {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.card.completed-in-time {
+    background: #e6ffe6; /* Зеленый фон для выполненных в срок */
+}
+
+.card.overdue {
+    background: #ff6c6c; /* Красный фон для просроченных */
+}
+
+/* Мигающая оранжевая обводка для просроченных карточек */
+.card.overdue::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    animation: blink-border 1s infinite;
+}
+
+@keyframes blink-border {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #d85f00;
+    }
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    margin: 5px 0;
+}
+
+.card button {
+    margin-top: 10px;
+}
+
+/* Стили для формы создания карточки */
+.card-form-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.card-form {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-form input,
+.card-form textarea,
+.card-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+/* Стили для статуса */
+.status {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status.overdue {
+    color: red; /* Красный цвет для просроченных */
+}
+
+.status.completed-in-time {
+    color: green; /* Зеленый цвет для выполненных в срок */
+}
